@@ -1,9 +1,29 @@
 // Trigger to play music in the background
 window.addEventListener('load', () => {
-    document.querySelector('.song').play();
-    animationTimeline();
+    areYouReady();
 });
 
+async function areYouReady(){
+    while(true){
+        const result = await Swal.fire({
+            title: 'Hazır mısın?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Evet',
+            cancelButtonText: 'Hayır',
+        });
+
+        if (result.isConfirmed) {
+            document.querySelector('.song').play();
+            animationTimeline();
+            return
+        }else{
+            continue
+        }
+    }
+}
 
 // Animation timeline
 const animationTimeline = () => {

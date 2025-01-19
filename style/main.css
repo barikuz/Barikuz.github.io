@@ -74,7 +74,7 @@ body {
 .text-box .fake-btn {
   background-color: rgb(21, 161, 237);
   border-radius: 3px;
-  bottom: -50px;
+  bottom: -52px;
   color: #fff;
   padding: .5rem 1rem;
   position: absolute;
@@ -266,6 +266,12 @@ body {
   }
 }
 
+@media screen and (max-width: 700px) {
+  .four .text-box {
+    width: 75%;
+  }
+}
+
 @media screen and (max-width: 500px) {
   
   .one{
@@ -290,14 +296,10 @@ body {
     align-items: center;
     flex-direction: column;
   }
-
-
-  .four .text-box {
-    width: 75%;
-  }
+  
 
   .text-box .fake-btn {
-    bottom: -38px;
+    bottom: -52px;
     right: 5px;
   }
 
