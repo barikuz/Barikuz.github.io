@@ -275,7 +275,10 @@ const animationTimeline = () => {
 
     // Restart Animation on click
     const replyBtn = document.getElementById("replay");
+    const audio = document.querySelector('.song');
     replyBtn.addEventListener("click", () => {
         tl.restart();
+        audio.currentTime = 0; 
+        audio.play();
     });
 }
