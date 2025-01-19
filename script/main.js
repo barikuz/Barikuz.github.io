@@ -1,27 +1,13 @@
-// trigger to play music in the background with sweetalert
+// Trigger to play music in the background
 window.addEventListener('load', () => {
-    Swal.fire({
-        title: 'Do you want to play music in the background?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes',
-        cancelButtonText: 'No',
-    }).then((result) => {
-        if (result.isConfirmed) {
-            document.querySelector('.song').play();
-            animationTimeline();
-        } else {
-            animationTimeline();
-        }
-    });
+    document.querySelector('.song').play();
+    animationTimeline();
 });
 
 
-// animation timeline
+// Animation timeline
 const animationTimeline = () => {
-    // split chars that needs to be animated individually
+    // Split chars that needs to be animated individually
     const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
     const hbd = document.getElementsByClassName("wish-hbd")[0];
 
@@ -60,7 +46,21 @@ const animationTimeline = () => {
     .from(".two", 0.4, {
         opacity: 0,
         y: 10
-    })
+    },"+=1.5")
+    .from(".two-2", 0.3, {
+        opacity: 0,
+        y: 10
+    },"+=1")
+    .from(".two-3", 0.2, {
+        opacity: 0,
+        y: 10
+    },"+=1")
+    .to(".two-3", 0.2,
+        {
+            opacity: 0,
+            y: 10
+        },
+    )
     .to(".one",
         0.7,
         {
@@ -75,6 +75,13 @@ const animationTimeline = () => {
             y: 10
         },
     "-=1")
+    .to(".two-2",
+        0.7,
+        {
+            opacity: 0,
+            y: 10
+        },
+    "-=1.5")
     .from(".three", 0.7, {
         opacity: 0,
         y: 10
@@ -85,7 +92,7 @@ const animationTimeline = () => {
             opacity: 0,
             y: 10
         },
-    "+=3")
+    "+=3.8")
     .from(".four", 0.7, {
         scale: 0.2,
         opacity: 0,
@@ -103,8 +110,7 @@ const animationTimeline = () => {
     )
     .to(".fake-btn", 0.1, {
         backgroundColor: "rgb(127, 206, 248)",
-    },
-    "+=4")
+    },"-=0.5")
     .to(
         ".four",
         0.5, {
@@ -204,6 +210,9 @@ const animationTimeline = () => {
         rotation: -180,
         opacity: 0,
     })
+    .to(".hat",0.5,{
+        rotation:-20
+    })
     .staggerFrom(
         ".wish-hbd span",
         0.7, {
@@ -255,7 +264,7 @@ const animationTimeline = () => {
         y: 30,
         zIndex: "-1",
     })
-    .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
+    .staggerFrom(".nine p", 1, ideaTextTrans, 4,"+=2")
     .to(
         ".last-smile",
         0.5, {
